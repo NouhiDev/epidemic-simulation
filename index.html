@@ -1,97 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>nouhidev | Epidemic Simulation</title>
-    <link rel="shortcut icon" href="https://nouhi.dev/assets/favicon.ico" />
-    <link rel="stylesheet" href="TemplateData/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <meta name="title" content="nouhidev | Epidemic Simulation" />
-    <meta
-      name="description"
-      content="Simulate an Epidemic using the SIR-Model and analyse preventative measures."
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.5" />
-    <meta charset="utf-8" />
-    <meta name="robots" content="index, follow" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <script src="TemplateData/index.js"></script>
-    <!-- Google Analytics -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "UA-144101469-4");
-    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Simulation of Preventative Measures</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <!-- Loader -->
-    <div class="loader">
-      <div class="cube">
-        <div class="side"></div>
-        <div class="side"></div>
-        <div class="side"></div>
-        <div class="side"></div>
-        <div class="side"></div>
-        <div class="side"></div>
-      </div>
-    </div>
-
-    <header>
-      <div class="logo-nav">
-          <img src="https://nouhi.dev/assets/logo.png" alt="">
-      </div>
-      <input type="checkbox" id="nav_check" hidden>
-      <nav>
-          <div class="logo">
-              <img src="https://nouhi.dev/assets/logo.png" alt="">
-          </div>
-          <ul>
-              <li>
-                  <a href="https://nouhi.dev/" class="active">Home</a>
-              </li>
-              <li>
-                  <a href="https://nouhi.dev/games/">Games</a>
-              </li>
-              <li>
-                <a href="https://nouhi.dev/projects/">Projects</a>
-            </li>
-              <li>
-                  <a href="https://nouhi.dev/other-projects/">Other</a>
-              </li>
-          </ul>
-      </nav>
-      <label for="nav_check" class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-      </label>
-  </header>
-
-    <div class="content">
-      <div id="unity-container" class="unity-desktop">
-        <canvas id="unity-canvas" width="1280" height="720"></canvas>
-        <div id="unity-loading-bar">
-          <div id="unity-logo"></div>
-          <div id="unity-progress-bar-empty">
-            <div id="unity-progress-bar-full"></div>
-          </div>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
         </div>
-        <div id="unity-warning"></div>
-        <div id="unity-footer">
-          <div id="unity-webgl-logo"></div>
-          <div id="unity-fullscreen-button"></div>
-          <div id="unity-build-title">Simulation of an Epidemic</div>
-        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Simulation of Preventative Measures</div>
       </div>
     </div>
     <script>
@@ -110,18 +39,15 @@
       // user.
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length
-            ? "block"
-            : "none";
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
         }
-        var div = document.createElement("div");
+        var div = document.createElement('div');
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == "error") div.style = "background: red; padding: 10px;";
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
         else {
-          if (type == "warning")
-            div.style = "background: yellow; padding: 10px;";
-          setTimeout(function () {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -130,14 +56,14 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/web.loader.js";
+      var loaderUrl = buildUrl + "/b1.loader.js";
       var config = {
-        dataUrl: buildUrl + "/web.data.unityweb",
-        frameworkUrl: buildUrl + "/web.framework.js.unityweb",
-        codeUrl: buildUrl + "/web.wasm.unityweb",
+        dataUrl: buildUrl + "/b1.data.unityweb",
+        frameworkUrl: buildUrl + "/b1.framework.js.unityweb",
+        codeUrl: buildUrl + "/b1.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Paul Menzel",
-        productName: "Simulation of an Epidemic",
+        companyName: "Nouhi Development",
+        productName: "Simulation of Preventative Measures",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
@@ -154,10 +80,10 @@
         // Avoid draining fillrate performance on mobile devices,
         // and default/override low DPI mode on mobile browsers.
         config.devicePixelRatio = 1;
-        unityShowBanner("WebGL builds are not supported on mobile devices.");
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "1280px";
-        canvas.style.height = "720px";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
       loadingBar.style.display = "block";
 
@@ -166,22 +92,16 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-        })
-          .then((unityInstance) => {
-            loadingBar.style.display = "none";
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
-          })
-          .catch((message) => {
-            alert(message);
-          });
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
       };
       document.body.appendChild(script);
-
-      function back_btn() {
-        localation.href ="https://nouhi.dev/";
-      }
     </script>
   </body>
 </html>
