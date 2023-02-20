@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>nouhidev | Simulation of Preventative Measures</title>
+    <title>Unity WebGL Player | Simulation of Preventative Measures</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -56,11 +56,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/b11.loader.js";
+      var loaderUrl = buildUrl + "/b12.loader.js";
       var config = {
-        dataUrl: buildUrl + "/b11.data.unityweb",
-        frameworkUrl: buildUrl + "/b11.framework.js.unityweb",
-        codeUrl: buildUrl + "/b11.wasm.unityweb",
+        dataUrl: buildUrl + "/b12.data.unityweb",
+        frameworkUrl: buildUrl + "/b12.framework.js.unityweb",
+        codeUrl: buildUrl + "/b12.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Nouhi Development",
         productName: "Simulation of Preventative Measures",
@@ -82,8 +82,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "1280";
-        canvas.style.height = "720";
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
       }
       loadingBar.style.display = "block";
 
