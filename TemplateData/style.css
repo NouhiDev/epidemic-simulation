@@ -59,7 +59,7 @@ body {
     background: url("webgl-logo.png") no-repeat center;
   }
   #unity-build-title {
-      float: right;
+
       margin-right: 10px;
       margin-top: 2px;
       line-height: 38px;
