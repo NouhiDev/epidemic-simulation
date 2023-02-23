@@ -8,6 +8,40 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
+    <header>
+      <div class="logo-nav">
+          <img src="assets/logo.png" alt="">
+      </div>
+      <input type="checkbox" id="nav_check" hidden>
+      <nav>
+          <div class="logo">
+              <img src="assets/logo.png" alt="">
+          </div>
+          <ul>
+            <li>
+                <a href="https://nouhi.dev/" class="active">Home</a>
+            </li>
+            <li>
+                <a href="https://nouhi.dev/games/">Games</a>
+            </li>
+            <li>
+              <a href="https://nouhi.dev/projects/">Projects</a>
+          </li>
+            <li>
+                <a href="https://nouhi.dev/other-projects/">Other</a>
+            </li>
+            <li>
+              <a href="https://nouhi.dev/contact/">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <label for="nav_check" class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+      </label>
+  </header>
+
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1280 height=720></canvas>
       <div id="unity-loading-bar">
