@@ -3,45 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>nouhidev | Simulation of Preventative Measures</title>
+    <title>Unity WebGL Player | Simulation of Preventative Measures</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="index.js"></script>
   </head>
   <body>
-    <header>
-      <div class="logo-nav">
-        <img src="https://nouhi.dev/assets/logo.png" alt="" />
-      </div>
-      <input type="checkbox" id="nav_check" hidden />
-      <nav>
-        <div class="logo">
-          <img src="https://nouhi.dev/assets/logo.png" alt="" />
-        </div>
-        <ul>
-          <li>
-            <a href="https://nouhi.dev/" class="active">Home</a>
-          </li>
-          <li>
-            <a href="https://nouhi.dev/games/">Games</a>
-          </li>
-          <li>
-            <a href="https://nouhi.dev/projects/">Projects</a>
-          </li>
-          <li>
-            <a href="https://nouhi.dev/other-projects/">Other</a>
-          </li>
-        </ul>
-      </nav>
-      <label for="nav_check" class="hamburger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </label>
-    </header>
-
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1680 height=1050></canvas>
+      <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -88,15 +56,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/b19.loader.js";
+      var loaderUrl = buildUrl + "/final-build.loader.js";
       var config = {
-        dataUrl: buildUrl + "/b19.data.unityweb",
-        frameworkUrl: buildUrl + "/b19.framework.js.unityweb",
-        codeUrl: buildUrl + "/b19.wasm.unityweb",
+        dataUrl: buildUrl + "/final-build.data.unityweb",
+        frameworkUrl: buildUrl + "/final-build.framework.js.unityweb",
+        codeUrl: buildUrl + "/final-build.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Nouhi Development",
         productName: "Simulation of Preventative Measures",
-        productVersion: "0.1",
+        productVersion: "1.0",
         showBanner: unityShowBanner,
       };
 
@@ -114,8 +82,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "1680px";
-        canvas.style.height = "1050";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
       loadingBar.style.display = "block";
 
