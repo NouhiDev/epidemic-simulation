@@ -1,57 +1,54 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>nouhidev | Simulation of Preventative Measures</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <link rel="stylesheet" href="TemplateData/style.css" />
   </head>
   <body>
     <header>
       <div class="logo-nav">
-          <img src="assets/logo.png" alt="">
+        <img src="assets/logo.png" alt="" />
       </div>
-      <input type="checkbox" id="nav_check" hidden>
+      <input type="checkbox" id="nav_check" hidden />
       <nav>
-          <div class="logo">
-              <img src="assets/logo.png" alt="">
-          </div>
-          <ul>
-            <li>
-                <a href="https://nouhi.dev/" class="active">Home</a>
-            </li>
-            <li>
-                <a href="https://nouhi.dev/games/">Games</a>
-            </li>
-            <li>
-              <a href="https://nouhi.dev/projects/">Projects</a>
+        <div class="logo">
+          <img src="assets/logo.png" alt="" />
+        </div>
+        <ul>
+          <li>
+            <a href="https://nouhi.dev/" class="active">Home</a>
           </li>
-            <li>
-                <a href="https://nouhi.dev/other-projects/">Other</a>
-            </li>
-            <li>
-              <a href="https://nouhi.dev/contact/">Contact</a>
+          <li>
+            <a href="https://nouhi.dev/games/">Games</a>
+          </li>
+          <li>
+            <a href="https://nouhi.dev/projects/">Projects</a>
+          </li>
+          <li>
+            <a href="https://nouhi.dev/other-projects/">Other</a>
+          </li>
+          <li>
+            <a href="https://nouhi.dev/contact/">Contact</a>
           </li>
         </ul>
       </nav>
       <label for="nav_check" class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
       </label>
-      
-  </header>
-  
+    </header>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1280 height=720></canvas>
+      <canvas id="unity-canvas" width="1280" height="720"></canvas>
       <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
+      <div id="unity-warning"></div>
       <div id="unity-footer">
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">VIEW THE PROJECT ON <a href="https://github.com/NouhiDev/vwa-epidemic-simulation">https://github.com/NouhiDev/vwa-epidemic-simulation</a></div>
@@ -73,15 +70,18 @@
       // user.
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+          warningBanner.style.display = warningBanner.children.length
+            ? "block"
+            : "none";
         }
-        var div = document.createElement('div');
+        var div = document.createElement("div");
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        if (type == "error") div.style = "background: red; padding: 10px;";
         else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
+          if (type == "warning")
+            div.style = "background: yellow; padding: 10px;";
+          setTimeout(function () {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -90,11 +90,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/build.loader.js";
+      var loaderUrl = buildUrl + "/splash-screen.loader.js";
       var config = {
-        dataUrl: buildUrl + "/build.data.unityweb",
-        frameworkUrl: buildUrl + "/build.framework.js.unityweb",
-        codeUrl: buildUrl + "/build.wasm.unityweb",
+        dataUrl: buildUrl + "/splash-screen.data.unityweb",
+        frameworkUrl: buildUrl + "/splash-screen.framework.js.unityweb",
+        codeUrl: buildUrl + "/splash-screen.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Nouhi Development",
         productName: "Simulation of Preventative Measures",
@@ -114,7 +114,7 @@
         // Avoid draining fillrate performance on mobile devices,
         // and default/override low DPI mode on mobile browsers.
         config.devicePixelRatio = 1;
-        unityShowBanner('WebGL builds are not supported on mobile devices.');
+        unityShowBanner("WebGL builds are not supported on mobile devices.");
       } else {
         canvas.style.width = "1280px";
         canvas.style.height = "720px";
@@ -126,14 +126,16 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
-        });
+        })
+          .then((unityInstance) => {
+            loadingBar.style.display = "none";
+            fullscreenButton.onclick = () => {
+              unityInstance.SetFullscreen(1);
+            };
+          })
+          .catch((message) => {
+            alert(message);
+          });
       };
       document.body.appendChild(script);
     </script>
